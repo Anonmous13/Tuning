@@ -13,6 +13,13 @@ public class TeleOpMode extends LinearOpMode {
         DcMotor frontRightMotor = hardwareMap.dcMotor.get("rf_drive");
         DcMotor backLeftMotor = hardwareMap.dcMotor.get("lb_drive");
         DcMotor backRightMotor = hardwareMap.dcMotor.get("rb_drive");
+        // Declare motor
+        DcMotor linearSlideMotor = hardwareMap.dcMotor.get("arm1");
+
+        // Define constants for motor power
+          final double UP_POWER = 0.5;
+          final double DOWN_POWER = -0.5;
+          final double STOP_POWER = 0;
 
         // Define a speed variable that can scale the power (you can adjust this value as needed)
         double speed = 1;  // Set the speed multiplier (0.5 for half speed, 1.0 for full speed)
@@ -33,10 +40,18 @@ public class TeleOpMode extends LinearOpMode {
             double deno = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
 
             // Calculate power for each motor with the speed variable applied
-            double frontLeftPower = (y + x - rx) / deno * speed;
+            double frontLeftPower = -(y + x + rx) / deno * speed;
             double backLeftPower = (y - x + rx) / deno * speed;
             double frontRightPower = (y - x - rx) / deno * speed;
             double backRightPower = -(y + x - rx) / deno * speed;
+
+            if (gamepad1.b) {
+                linearSlideMotor.setPower(UP_POWER);
+            } else if (gamepad1.y) {
+                linearSlideMotor.setPower(DOWN_POWER);
+            } else {
+                linearSlideMotor.setPower(STOP_POWER);
+            }
 
             // Set motor powers
             frontLeftMotor.setPower(frontLeftPower);
@@ -46,3 +61,4 @@ public class TeleOpMode extends LinearOpMode {
         }
     }
 }
+

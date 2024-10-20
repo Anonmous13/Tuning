@@ -28,9 +28,9 @@ public class SimpleLinearSlide extends LinearOpMode {
 
         while (opModeIsActive()) {
 
-            if (gamepad1.dpad_up) {
+            if (gamepad1.y) {
                 linearSlideMotor.setPower(UP_POWER);
-            } else if (gamepad1.dpad_down) {
+            } else if (gamepad1.b) {
                 linearSlideMotor.setPower(DOWN_POWER);
             } else {
                 linearSlideMotor.setPower(STOP_POWER);
