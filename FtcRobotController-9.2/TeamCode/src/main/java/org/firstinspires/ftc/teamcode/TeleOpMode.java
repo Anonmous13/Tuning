@@ -14,17 +14,17 @@ public class TeleOpMode extends LinearOpMode {
         DcMotor frontRightMotor = hardwareMap.dcMotor.get("rf_drive");
         DcMotor backLeftMotor = hardwareMap.dcMotor.get("lb_drive");
         DcMotor backRightMotor = hardwareMap.dcMotor.get("rb_drive");
-        DcMotor linearSlideMotor = hardwareMap.dcMotor.get("arm1");
+//        DcMotor linearSlideMotor = hardwareMap.dcMotor.get("arm1");
 
         // Declare servo for linear slide claw
-        Servo clawServo = hardwareMap.servo.get("claw_servo");
+//        Servo clawServo = hardwareMap.servo.get("claw_servo");
 
         // Constants for motor power
         final double STOP_POWER = 0;
 
         // Set the linear slide motor to use encoders
-        linearSlideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        linearSlideMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//        linearSlideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//        linearSlideMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
         // Define target positions in encoder counts for different heights
         final int SLIDE_LOW_POSITION = 0;       // Bottom position
@@ -56,20 +56,20 @@ public class TeleOpMode extends LinearOpMode {
 
             // Calculate power for each motor
             double frontLeftPower = -(y + x + rx) / deno * speed;
-            double backLeftPower = (y - x + rx) / deno * speed;
+            double backLeftPower = -(y - x + rx) / deno * speed;
             double frontRightPower = (y - x - rx) / deno * speed;
             double backRightPower = -(y + x - rx) / deno * speed;
 
             // Skibidi linear slide height with gamepad buttons
             if (gamepad1.dpad_up) {
-                linearSlideMotor.setTargetPosition(SLIDE_HIGH_POSITION);
-                linearSlideMotor.setPower(SLIDE_POWER);
+//                linearSlideMotor.setTargetPosition(SLIDE_HIGH_POSITION);
+//                linearSlideMotor.setPower(SLIDE_POWER);
             } else if (gamepad1.dpad_right) {
-                linearSlideMotor.setTargetPosition(SLIDE_MID_POSITION);
-                linearSlideMotor.setPower(SLIDE_POWER);
+//                linearSlideMotor.setTargetPosition(SLIDE_MID_POSITION);
+//                linearSlideMotor.setPower(SLIDE_POWER);
             } else if (gamepad1.dpad_down) {
-                linearSlideMotor.setTargetPosition(SLIDE_LOW_POSITION);
-                linearSlideMotor.setPower(SLIDE_POWER);
+//                linearSlideMotor.setTargetPosition(SLIDE_LOW_POSITION);
+//                linearSlideMotor.setPower(SLIDE_POWER);
             }
 
             // Increment or decrement servo position with gamepad buttons
@@ -81,7 +81,7 @@ public class TeleOpMode extends LinearOpMode {
 
             // Set servo position within the range
             clawPosition = Math.max(Math.min(clawPosition, CLAW_MAX_POSITION), CLAW_MIN_POSITION);
-            clawServo.setPosition(clawPosition);
+//            clawServo.setPosition(clawPosition);
 
             // Set motor powers
             frontLeftMotor.setPower(frontLeftPower);
@@ -91,9 +91,10 @@ public class TeleOpMode extends LinearOpMode {
 
             // Update telemetry for debugging
             telemetry.addData("Claw Position", clawPosition);
-            telemetry.addData("Slide Target Position", linearSlideMotor.getTargetPosition());
-            telemetry.addData("Slide Current Position", linearSlideMotor.getCurrentPosition());
+//            telemetry.addData("Slide Target Position", linearSlideMotor.getTargetPosition());
+//            telemetry.addData("Slide Current Position", linearSlideMotor.getCurrentPosition());
             telemetry.update();
         }
+
     }
 }
