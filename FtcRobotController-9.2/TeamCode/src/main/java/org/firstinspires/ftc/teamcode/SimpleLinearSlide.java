@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 public class SimpleLinearSlide extends LinearOpMode {
 
     // Declare motor
-    private DcMotor linearSlideMotor;
+    private DcMotor linearSlideMotor = hardwareMap.dcMotor.get("arm1");;
 
     // Define constants for motor power
     private static final double UP_POWER = 0.5;
