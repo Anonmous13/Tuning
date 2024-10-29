@@ -3,8 +3,11 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
+
 @TeleOp
 public class TeleOpMode extends LinearOpMode {
+
     @Override
     public void runOpMode() throws InterruptedException {
 
@@ -12,40 +15,31 @@ public class TeleOpMode extends LinearOpMode {
         DcMotor frontRightMotor = hardwareMap.dcMotor.get("rf_drive");
         DcMotor backLeftMotor = hardwareMap.dcMotor.get("lb_drive");
         DcMotor backRightMotor = hardwareMap.dcMotor.get("rb_drive");
-        DcMotor linearSlideMotor = hardwareMap.dcMotor.get("arm1");
+        //DcMotor linearSlideMotor = hardwareMap.dcMotor.get("arm1");
         DcMotor slideMovementMotor = hardwareMap.dcMotor.get("movement1");
 
-        // Declare servo for linear slide claw
-    // Servo clawServo = hardwareMap.servo.get("claw_servo");
+        // Initialize servo for clockwise and anti-clockwise movement
+        Servo rotationServo = hardwareMap.servo.get("rotation_servo");
+        double servoPosition = 0.0; // Start position at 0 degrees
+        final double SERVO_INCREMENT = 0.01; // Increment for servo movement
+        final double MAX_POSITION = 1.0; // Maximum position (equivalent to 180 degrees for most servos)
+        final double MIN_POSITION = 0.0; // Minimum position (0 degrees)
 
         // Constants for motor power
         final double STOP_POWER = 0;
         final double UP_POWER = 0.2;
         final double DOWN_POWER = -0.5;
 
+        // Configure linear slide motor
+//        linearSlideMotor.setDirection(DcMotor.Direction.FORWARD);
+//        linearSlideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//        linearSlideMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-        // Set the linear slide motor to use encoders
-        linearSlideMotor.setDirection(DcMotor.Direction.FORWARD);
+        // Define slide positions
+        final int SLIDE_LOW_POSITION = 0;
+        final int SLIDE_MID_POSITION = 1000;
+        final int SLIDE_HIGH_POSITION = 2000;
 
-        linearSlideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-        // Define target positions in encoder counts for different heights
-        linearSlideMotor = hardwareMap.get(DcMotor.class, "arm1");
-
-        linearSlideMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        // Define target positions in encoder counts for different heights
-        final int SLIDE_LOW_POSITION = 0;       // Bottom position
-        final int SLIDE_MID_POSITION = 1000;    // Mid position (adjust as needed)
-        final int SLIDE_HIGH_POSITION = 2000;   // Top position (adjust as needed)
-        final double SLIDE_POWER = 1.0;         // Power level for moving slide
-
-        // Variables to control the servo position
-        double clawPosition = 0.25; // Initial position, corresponds to 90 degrees
-        final double CLAW_INCREMENT = 0.01; // Small increment value for precise control
-        final double CLAW_MIN_POSITION = 0.25; // Corresponds to 90 degrees
-        final double CLAW_MAX_POSITION = 0.75; // Corresponds to 270 degrees
-
-        // Speed variable for motor power scaling
         double speed = 1;
 
         waitForStart();
@@ -53,69 +47,55 @@ public class TeleOpMode extends LinearOpMode {
         if (isStopRequested()) return;
 
         while (opModeIsActive()) {
-            // Get joystick input for direction and rotation
-            double y = -gamepad1.left_stick_y;  // Forward/backward
-            double x = gamepad1.left_stick_x * 1.1;  // Strafing
-            double rx = gamepad1.right_stick_x;  // Rotation
-
-            // Calculate the denominator for normalizing motor power
+            // Gamepad1 - Movement Controls
+            double y = -gamepad1.left_stick_y;
+            double x = gamepad1.left_stick_x * 1.1;
+            double rx = gamepad1.right_stick_x;
             double deno = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
 
-            // Calculate power for each motor
             double frontLeftPower = -(y + x + rx) / deno * speed;
             double backLeftPower = -(y - x + rx) / deno * speed;
             double frontRightPower = (y - x - rx) / deno * speed;
             double backRightPower = -(y + x - rx) / deno * speed;
 
-            // Skibidi linear slide height with gamepad buttons
-            if (gamepad1.y) {
-                linearSlideMotor.setPower(UP_POWER);
-            } else if (gamepad1.b) {
-                linearSlideMotor.setPower(DOWN_POWER);
-            } else {
-                linearSlideMotor.setPower(STOP_POWER);
-            }
-
-            if(gamepad1.x)
-                slideMovementMotor.setPower(UP_POWER);
-            else if(gamepad1.a)
-                slideMovementMotor.setPower(DOWN_POWER);
-            else
-                slideMovementMotor.setPower(0);
-            slideMovementMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-
-
-
-
-
-
-
-//            if (gamepad1.a && clawPosition < CLAW_MAX_POSITION) {
-//                clawPosition += CLAW_INCREMENT; // Increase position
-//            } else if (gamepad1.b && clawPosition > CLAW_MIN_POSITION) {
-//                clawPosition -= CLAW_INCREMENT; // Decrease position
-//            }
-
-//            clawPosition = Math.max(Math.min(clawPosition, CLAW_MAX_POSITION), CLAW_MIN_POSITION);
-//            clawServo.setPosition(clawPosition);
-
-            // Set motor powers
             frontLeftMotor.setPower(frontLeftPower);
             backLeftMotor.setPower(backLeftPower);
             frontRightMotor.setPower(frontRightPower);
             backRightMotor.setPower(backRightPower);
 
-            // Update telemetry for debugging
-            // Display the current encoder value on telemetry
-            telemetry.addData("Slide Position", linearSlideMotor.getCurrentPosition());
-            telemetry.update();
+            // Gamepad2 - Non-Movement Controls for Linear Slide and Slide Movement
+//            if (gamepad2.y) {
+//                linearSlideMotor.setPower(UP_POWER);
+//            } else if (gamepad2.b) {
+//                linearSlideMotor.setPower(DOWN_POWER);
+//            } else {
+//                linearSlideMotor.setPower(STOP_POWER);
+//            }
+
+            if (gamepad2.x)
+                slideMovementMotor.setPower(UP_POWER);
+            else if (gamepad2.a)
+                slideMovementMotor.setPower(DOWN_POWER);
+            else
+                slideMovementMotor.setPower(0);
+
+            slideMovementMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+            // Gamepad2 - Servo Control for Clockwise and Anti-Clockwise Movement
+            if (gamepad2.dpad_right && servoPosition < MAX_POSITION) {
+                servoPosition += SERVO_INCREMENT; // Move clockwise Skibidi Slicers.
+            } else if (gamepad2.dpad_left && servoPosition > MIN_POSITION) {
+                servoPosition -= SERVO_INCREMENT; // Move anti-clockwise Skibidi Slicers.
+            }
+
+            // Ensure servo position stays within bounds
+            servoPosition = Math.max(Math.min(servoPosition, MAX_POSITION), MIN_POSITION);
+            rotationServo.setPosition(servoPosition);
 
             // Update telemetry for debugging
-          telemetry.addData("Claw Position", clawPosition);
-            telemetry.addData("Slide Target Position", linearSlideMotor.getTargetPosition());
-            telemetry.addData("Slide Current Position", linearSlideMotor.getCurrentPosition());
+            telemetry.addData("Servo Position", servoPosition);
+           // telemetry.addData("Slide Position", linearSlideMotor.getCurrentPosition());
             telemetry.update();
         }
-
     }
 }
