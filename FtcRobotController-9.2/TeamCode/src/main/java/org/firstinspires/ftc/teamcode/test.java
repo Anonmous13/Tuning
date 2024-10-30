@@ -3,13 +3,12 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 @TeleOp
 public class test extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
 
-        DcMotor linearSlideMotor = hardwareMap.dcMotor.get("arm1");
-        DcMotor slideMovementMotor = hardwareMap.dcMotor.get("movement1");
 
         // Declare servo for linear slide claw
         // Servo clawServo = hardwareMap.servo.get("claw_servo");
@@ -19,16 +18,13 @@ public class test extends LinearOpMode {
         final double UP_POWER = 0.2;
         final double DOWN_POWER = -0.5;
 
+        // Initialize servo for clockwise and anti-clockwise movement
+        Servo rotationServo = hardwareMap.servo.get("rotation_servo");
+        double servoPosition = 0.0; // Start position at 0 degrees
+        final double SERVO_INCREMENT = 0.01; // Increment for servo movement
+        final double MAX_POSITION = 1.0; // Maximum position (equivalent to 180 degrees for most servos)
+        final double MIN_POSITION = 0.0; // Minimum position (0 degrees)
 
-        // Set the linear slide motor to use encoders
-        linearSlideMotor.setDirection(DcMotor.Direction.FORWARD);
-
-        linearSlideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-        // Define target positions in encoder counts for different heights
-        linearSlideMotor = hardwareMap.get(DcMotor.class, "arm1");
-
-        linearSlideMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // Variables to control the servo position
         double clawPosition = 0.25; // Initial position, corresponds to 90 degrees
@@ -38,38 +34,28 @@ public class test extends LinearOpMode {
 
         waitForStart();
 
-        if (isStopRequested()) return;
-
         while (opModeIsActive()) {
-            // Skibidi linear slide height with gamepad buttons
-            if (gamepad1.y) {
-                linearSlideMotor.setPower(UP_POWER);
-            } else if (gamepad1.b) {
-                linearSlideMotor.setPower(DOWN_POWER);
-            } else {
-                linearSlideMotor.setPower(STOP_POWER);
+
+            // Gamepad1 - Servo Control for Clockwise and Anti-Clockwise Movement
+            if (gamepad1.dpad_right && servoPosition < MAX_POSITION) {
+                servoPosition += SERVO_INCREMENT; // Move clockwise Skibidi Slicers.
+            } else if (gamepad1.dpad_left && servoPosition > MIN_POSITION) {
+                servoPosition -= SERVO_INCREMENT; // Move anti-clockwise Skibidi Slicers.
             }
 
-            if(gamepad1.x)
-                slideMovementMotor.setPower(UP_POWER);
-            else if(gamepad1.a)
-                slideMovementMotor.setPower(DOWN_POWER);
-            else
-                slideMovementMotor.setPower(0);
-                slideMovementMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            // Ensure servo position stays within bounds
+            servoPosition = Math.max(Math.min(servoPosition, MAX_POSITION), MIN_POSITION);
+            rotationServo.setPosition(servoPosition);
+            // Update telemetry for debugging
+            telemetry.addData("Servo Position", servoPosition);
 
+            // Display the current encoder value on telemetry
 
-
-                // Display the current encoder value on telemetry
-                telemetry.addData("Slide Position", linearSlideMotor.getCurrentPosition());
-                telemetry.update();
 
             // Update telemetry for debugging
-            telemetry.addData("Claw Position", clawPosition);
-            telemetry.addData("Slide Target Position", linearSlideMotor.getTargetPosition());
-            telemetry.addData("Slide Current Position", linearSlideMotor.getCurrentPosition());
+
             telemetry.update();
         }
-
     }
-}
+    }
+

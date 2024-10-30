@@ -15,15 +15,10 @@ public class TeleOpMode extends LinearOpMode {
         DcMotor frontRightMotor = hardwareMap.dcMotor.get("rf_drive");
         DcMotor backLeftMotor = hardwareMap.dcMotor.get("lb_drive");
         DcMotor backRightMotor = hardwareMap.dcMotor.get("rb_drive");
-        //DcMotor linearSlideMotor = hardwareMap.dcMotor.get("arm1");
+        DcMotor linearSlideMotor = hardwareMap.dcMotor.get("arm1");
         DcMotor slideMovementMotor = hardwareMap.dcMotor.get("movement1");
 
-        // Initialize servo for clockwise and anti-clockwise movement
-        Servo rotationServo = hardwareMap.servo.get("rotation_servo");
-        double servoPosition = 0.0; // Start position at 0 degrees
-        final double SERVO_INCREMENT = 0.01; // Increment for servo movement
-        final double MAX_POSITION = 1.0; // Maximum position (equivalent to 180 degrees for most servos)
-        final double MIN_POSITION = 0.0; // Minimum position (0 degrees)
+
 
         // Constants for motor power
         final double STOP_POWER = 0;
@@ -31,9 +26,9 @@ public class TeleOpMode extends LinearOpMode {
         final double DOWN_POWER = -0.5;
 
         // Configure linear slide motor
-//        linearSlideMotor.setDirection(DcMotor.Direction.FORWARD);
-//        linearSlideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-//        linearSlideMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        linearSlideMotor.setDirection(DcMotor.Direction.FORWARD);
+        linearSlideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        linearSlideMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // Define slide positions
         final int SLIDE_LOW_POSITION = 0;
@@ -64,13 +59,13 @@ public class TeleOpMode extends LinearOpMode {
             backRightMotor.setPower(backRightPower);
 
             // Gamepad2 - Non-Movement Controls for Linear Slide and Slide Movement
-//            if (gamepad2.y) {
-//                linearSlideMotor.setPower(UP_POWER);
-//            } else if (gamepad2.b) {
-//                linearSlideMotor.setPower(DOWN_POWER);
-//            } else {
-//                linearSlideMotor.setPower(STOP_POWER);
-//            }
+            if (gamepad2.y) {
+                linearSlideMotor.setPower(UP_POWER);
+            } else if (gamepad2.b) {
+                linearSlideMotor.setPower(DOWN_POWER);
+            } else {
+                linearSlideMotor.setPower(STOP_POWER);
+            }
 
             if (gamepad2.x)
                 slideMovementMotor.setPower(UP_POWER);
@@ -81,20 +76,8 @@ public class TeleOpMode extends LinearOpMode {
 
             slideMovementMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-            // Gamepad2 - Servo Control for Clockwise and Anti-Clockwise Movement
-            if (gamepad2.dpad_right && servoPosition < MAX_POSITION) {
-                servoPosition += SERVO_INCREMENT; // Move clockwise Skibidi Slicers.
-            } else if (gamepad2.dpad_left && servoPosition > MIN_POSITION) {
-                servoPosition -= SERVO_INCREMENT; // Move anti-clockwise Skibidi Slicers.
-            }
 
-            // Ensure servo position stays within bounds
-            servoPosition = Math.max(Math.min(servoPosition, MAX_POSITION), MIN_POSITION);
-            rotationServo.setPosition(servoPosition);
-
-            // Update telemetry for debugging
-            telemetry.addData("Servo Position", servoPosition);
-           // telemetry.addData("Slide Position", linearSlideMotor.getCurrentPosition());
+            telemetry.addData("Slide Position", linearSlideMotor.getCurrentPosition());
             telemetry.update();
         }
     }
