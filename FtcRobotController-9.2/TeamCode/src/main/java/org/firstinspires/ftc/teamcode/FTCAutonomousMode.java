@@ -22,7 +22,7 @@ public class FTCAutonomousMode extends LinearOpMode {
         frontRightMotor = hardwareMap.get(DcMotor.class, "rf_drive");
         backLeftMotor = hardwareMap.get(DcMotor.class, "lb_drive");
         backRightMotor = hardwareMap.get(DcMotor.class, "rb_drive");
-        armServo = hardwareMap.get(Servo.class, "arm1");
+        armServo = hardwareMap.get(Servo.class, "rotation_servo");
 
         // Set motor directions
         frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
