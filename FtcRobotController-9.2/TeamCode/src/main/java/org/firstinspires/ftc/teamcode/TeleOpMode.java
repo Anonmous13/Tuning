@@ -15,8 +15,8 @@ public class TeleOpMode extends LinearOpMode {
         DcMotor frontRightMotor = hardwareMap.dcMotor.get("rf_drive");
         DcMotor backLeftMotor = hardwareMap.dcMotor.get("lb_drive");
         DcMotor backRightMotor = hardwareMap.dcMotor.get("rb_drive");
-        DcMotor linearSlideMotor = hardwareMap.dcMotor.get("arm1");
-        DcMotor slideMovementMotor = hardwareMap.dcMotor.get("movement1");
+        //DcMotor linearSlideMotor = hardwareMap.dcMotor.get("arm1");
+        //DcMotor slideMovementMotor = hardwareMap.dcMotor.get("movement1");
 
         // Initialize servo
         Servo armServo = hardwareMap.servo.get("servo_arm");
@@ -29,27 +29,27 @@ public class TeleOpMode extends LinearOpMode {
         // Servo positions
         final double SERVO_MIN_POSITION = 0.0;
         final double SERVO_MAX_POSITION = 1.0;
-        double servoPosition = 0.5; // Start at midpoint
+        double servoPosition = 0.5; // Start at midpointz
         armServo.setPosition(servoPosition); // Initialize servo position
 
-        // Linear slide motor configuration
-        linearSlideMotor.setDirection(DcMotor.Direction.FORWARD);
-        linearSlideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        linearSlideMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//        // Linear slide motor configuration
+//        linearSlideMotor.setDirection(DcMotor.Direction.FORWARD);
+//        linearSlideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//        linearSlideMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // Motor power configuration
         frontLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         frontRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        slideMovementMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+       // slideMovementMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         // Slide positions
         final int SLIDE_LOW_POSITION = 0;
         final int SLIDE_MID_POSITION = 1000;
         final int SLIDE_HIGH_POSITION = 2000;
 
-        double speed = 1;
+        double speed = 0.5;
 
         waitForStart();
 
@@ -72,22 +72,22 @@ public class TeleOpMode extends LinearOpMode {
             frontRightMotor.setPower(frontRightPower);
             backRightMotor.setPower(backRightPower);
 
-            // Gamepad2 - Linear Slide and Slide Movement Controls
-            if (gamepad2.y) {
-                linearSlideMotor.setPower(UP_POWER);
-            } else if (gamepad2.b) {
-                linearSlideMotor.setPower(DOWN_POWER);
-            } else {
-                linearSlideMotor.setPower(STOP_POWER);
-            }
-
-            if (gamepad2.x) {
-                slideMovementMotor.setPower(UP_POWER);
-            } else if (gamepad2.a) {
-                slideMovementMotor.setPower(DOWN_POWER);
-            } else {
-                slideMovementMotor.setPower(0);
-            }
+//            // Gamepad2 - Linear Slide and Slide Movement Controls
+//            if (gamepad2.y) {
+//                linearSlideMotor.setPower(UP_POWER);
+//            } else if (gamepad2.b) {
+//                linearSlideMotor.setPower(DOWN_POWER);
+//            } else {
+//                linearSlideMotor.setPower(STOP_POWER);
+//            }
+//
+//            if (gamepad2.x) {
+//                slideMovementMotor.setPower(UP_POWER);
+//            } else if (gamepad2.a) {
+//                slideMovementMotor.setPower(DOWN_POWER);
+//           } else {
+//                slideMovementMotor.setPower(0);
+//           }
 
             // Gamepad2 - Servo Controls with Larger Steps
             if (gamepad2.dpad_up) {
@@ -105,8 +105,8 @@ public class TeleOpMode extends LinearOpMode {
 
             // Ensure interrupted state clean-up if stop requested
             if (isStopRequested()) {
-                linearSlideMotor.setPower(0);
-                slideMovementMotor.setPower(0);
+               // linearSlideMotor.setPower(0);
+//                slideMovementMotor.setPower(0);
                 frontLeftMotor.setPower(0);
                 frontRightMotor.setPower(0);
                 backLeftMotor.setPower(0);

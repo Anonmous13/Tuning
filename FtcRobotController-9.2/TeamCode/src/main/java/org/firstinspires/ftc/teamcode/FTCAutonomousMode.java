@@ -22,7 +22,7 @@ public class FTCAutonomousMode extends LinearOpMode {
         frontRightMotor = hardwareMap.get(DcMotor.class, "rf_drive");
         backLeftMotor = hardwareMap.get(DcMotor.class, "lb_drive");
         backRightMotor = hardwareMap.get(DcMotor.class, "rb_drive");
-        armServo = hardwareMap.get(Servo.class, "rotation_servo");
+        //armServo = hardwareMap.get(Servo.class, "rotation_servo");
 
         // Set motor directions
         frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
@@ -35,6 +35,7 @@ public class FTCAutonomousMode extends LinearOpMode {
         telemetry.update();
 
         waitForStart();
+
 
         if (opModeIsActive()) {
             // Select a position and execute its routine
@@ -69,9 +70,10 @@ public class FTCAutonomousMode extends LinearOpMode {
         telemetry.addData("Position", "Position 1");
         telemetry.update();
 
+        //moveForward(500, 0.5); // Move forward for 500 ms
         moveForward(1000, 0.5); // Move forward for 1000 ms
-        dropGameElement();
-        moveBackward(500, 0.5); // Move backward for 500 ms
+//        dropGameElement();
+//        moveBackward(500, 0.5); // Move backward for 500 ms
     }
 
     private void runPosition2Autonomous() {
@@ -80,7 +82,7 @@ public class FTCAutonomousMode extends LinearOpMode {
 
         strafeRight(1000, 0.5); // Strafe right for 1000 ms
         moveForward(1000, 0.5);
-        dropGameElement();
+//        dropGameElement();
     }
 
     private void runPosition3Autonomous() {
@@ -90,7 +92,7 @@ public class FTCAutonomousMode extends LinearOpMode {
         moveForward(500, 0.5);
         turnRight(500, 0.5); // Turn right for 500 ms
         moveForward(1000, 0.5);
-        dropGameElement();
+//        dropGameElement();
     }
 
     private void runPosition4Autonomous() {
@@ -99,7 +101,7 @@ public class FTCAutonomousMode extends LinearOpMode {
 
         moveForward(500, 0.5);
         strafeLeft(1000, 0.5);
-        dropGameElement();
+//        dropGameElement();
     }
 
     // Basic movement functions
@@ -143,7 +145,7 @@ public class FTCAutonomousMode extends LinearOpMode {
         frontLeftMotor.setPower(fl);
         frontRightMotor.setPower(fr);
         backLeftMotor.setPower(bl);
-        backRightMotor.setPower(br);
+        backRightMotor.setPower(-br);
     }
 
     private void stopMotors() {
