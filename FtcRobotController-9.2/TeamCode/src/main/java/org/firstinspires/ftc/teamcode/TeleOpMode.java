@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp
@@ -11,26 +12,26 @@ public class TeleOpMode extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
 
         // Initialize motors
-        DcMotor frontLeftMotor = hardwareMap.dcMotor.get("lf_drive");
-        DcMotor frontRightMotor = hardwareMap.dcMotor.get("rf_drive");
-        DcMotor backLeftMotor = hardwareMap.dcMotor.get("lb_drive");
-        DcMotor backRightMotor = hardwareMap.dcMotor.get("rb_drive");
+        DcMotorEx frontRightMotor = hardwareMap.get(DcMotorEx.class, "rf_drive"); //0
+        DcMotorEx backRightMotor = hardwareMap.get(DcMotorEx.class, "rb_drive"); //1
+        DcMotor frontLeftMotor = hardwareMap.dcMotor.get("lf_drive"); //2
+        DcMotor backLeftMotor = hardwareMap.dcMotor.get("lb_drive"); //3
         //DcMotor linearSlideMotor = hardwareMap.dcMotor.get("arm1");
         //DcMotor slideMovementMotor = hardwareMap.dcMotor.get("movement1");
 
         // Initialize servo
-        Servo armServo = hardwareMap.servo.get("servo_arm");
+        // Servo armServo = hardwareMap.servo.get("servo_arm");
 
         // Power constants
-        final double STOP_POWER = 0;
-        final double UP_POWER = 0.2;
-        final double DOWN_POWER = -0.5;
+//        final double STOP_POWER = 0;
+//        final double UP_POWER = 0.2;
+//        final double DOWN_POWER = -0.5;
 
         // Servo positions
-        final double SERVO_MIN_POSITION = 0.0;
-        final double SERVO_MAX_POSITION = 1.0;
-        double servoPosition = 0.5; // Start at midpointz
-        armServo.setPosition(servoPosition); // Initialize servo position
+//        final double SERVO_MIN_POSITION = 0.0;
+//        final double SERVO_MAX_POSITION = 1.0;
+//        double servoPosition = 0.5; // Start at midpointz
+//        armServo.setPosition(servoPosition); // Initialize servo position
 
 //        // Linear slide motor configuration
 //        linearSlideMotor.setDirection(DcMotor.Direction.FORWARD);
@@ -42,12 +43,12 @@ public class TeleOpMode extends LinearOpMode {
         frontRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-       // slideMovementMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        // slideMovementMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         // Slide positions
-        final int SLIDE_LOW_POSITION = 0;
-        final int SLIDE_MID_POSITION = 1000;
-        final int SLIDE_HIGH_POSITION = 2000;
+//        final int SLIDE_LOW_POSITION = 0;
+//        final int SLIDE_MID_POSITION = 1000;
+//        final int SLIDE_HIGH_POSITION = 2000;
 
         double speed = 0.5;
 
@@ -89,29 +90,31 @@ public class TeleOpMode extends LinearOpMode {
 //                slideMovementMotor.setPower(0);
 //           }
 
-            // Gamepad2 - Servo Controls with Larger Steps
-            if (gamepad2.dpad_up) {
-                servoPosition = SERVO_MIN_POSITION;  // Move to left position
-            } else if (gamepad2.dpad_down) {
-                servoPosition = SERVO_MAX_POSITION;  // Move to right position
-            }
-
-            armServo.setPosition(servoPosition);
-
-            // Telemetry for debugging
-            telemetry.addData("Servo Target Position", servoPosition);
-            telemetry.addData("Actual Servo Position", armServo.getPosition());
-            telemetry.update();
+//             Gamepad2 - Servo Controls with Larger Steps
+//            if (gamepad2.dpad_up) {
+//                servoPosition = SERVO_MIN_POSITION;  // Move to left position
+//            } else if (gamepad2.dpad_down) {
+//                servoPosition = SERVO_MAX_POSITION;  // Move to right position
+//            }
+//
+//            armServo.setPosition(servoPosition);
+//
+//            // Telemetry for debugging
+//            telemetry.addData("Servo Target Position", servoPosition);
+//            telemetry.addData("Actual Servo Position", armServo.getPosition());
+//            telemetry.update();
 
             // Ensure interrupted state clean-up if stop requested
             if (isStopRequested()) {
-               // linearSlideMotor.setPower(0);
+                // linearSlideMotor.setPower(0);
 //                slideMovementMotor.setPower(0);
                 frontLeftMotor.setPower(0);
                 frontRightMotor.setPower(0);
                 backLeftMotor.setPower(0);
                 backRightMotor.setPower(0);
                 return;
+
+
             }
         }
     }
