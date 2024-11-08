@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@TeleOp 
+@TeleOp
 public class PossibleTeleOPWithMotors extends LinearOpMode {
 
     @Override
@@ -42,6 +42,8 @@ public class PossibleTeleOPWithMotors extends LinearOpMode {
         waitForStart();
 
         if (isStopRequested()) return;
+
+        //Test For Karthi's Github.
 
         // Configuration: 2 DC Motors Synchronized with Encoders
         frontRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
