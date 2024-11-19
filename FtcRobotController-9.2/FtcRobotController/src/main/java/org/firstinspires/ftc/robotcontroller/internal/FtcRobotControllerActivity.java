@@ -769,7 +769,6 @@ public class FtcRobotControllerActivity extends Activity
   private void checkPreferredChannel() {
     // For P2P network, check to see what preferred channel is.
     if (networkType ==  NetworkType.WIFIDIRECT) {
-      int prefChannel = preferencesHelper.readInt(getString(com.qualcomm.ftccommon.R.string.pref_wifip2p_channel), -1);
 
       int prefChannel = preferencesHelper.readInt(getString(com.qualcomm.ftcrobotcontroller.R.string.pref_wifip2p_channel), -1);
       if (prefChannel == -1) {

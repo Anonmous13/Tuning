@@ -2,14 +2,15 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-@Autonomous(name = "FTC Into The Deep Autonomous")
-public class FTCAutonomousMode extends LinearOpMode {
+@Autonomous(name = "Actual Blue Auton")
+public class ActualBlueAuton extends LinearOpMode {
 
-    private DcMotor frontLeftMotor, frontRightMotor, backLeftMotor, backRightMotor;
-    private Servo armServo;
+    private DcMotor frontLeftMotor, frontRightMotor, backLeftMotor, backRightMotor, linearSlideMotor, intakeMotor, backMotor;
+    private CRServo armServo, linearSlideServoL, linearSlideServoR;
 
     // Constants for servo positions
     private static final double ARM_OPEN_POSITION = 0.0;
@@ -22,20 +23,44 @@ public class FTCAutonomousMode extends LinearOpMode {
         frontRightMotor = hardwareMap.get(DcMotor.class, "rf_drive");
         backLeftMotor = hardwareMap.get(DcMotor.class, "lb_drive");
         backRightMotor = hardwareMap.get(DcMotor.class, "rb_drive");
-        //armServo = hardwareMap.get(Servo.class, "rotation_servo");
+        linearSlideMotor = hardwareMap.get(DcMotor.class, "linearSlide");
+        backMotor = hardwareMap.get(DcMotor.class, "back");
+        intakeMotor = hardwareMap.get(DcMotor.class, "intake");
+
+        armServo = hardwareMap.get(CRServo.class, "frontIntakeServo");
+        linearSlideServoL = hardwareMap.get(CRServo.class, "backIntakeServoL");
+        linearSlideServoR = hardwareMap.get(CRServo.class, "backIntakeServoL");
 
         // Set motor directions
         frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
         backLeftMotor.setDirection(DcMotor.Direction.REVERSE);
 
-        // Set all motors to brake when zero power is applied
+        // Set all motors to brake when zero power is applied, setup encoder modes
         setMotorZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+        intakeMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        linearSlideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        backMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        intakeMotor.setTargetPosition(0);
+        linearSlideMotor.setTargetPosition(50);
+        backMotor.setTargetPosition(0);
+
+        intakeMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        linearSlideMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+        intakeMotor.setPower(1);
+        linearSlideMotor.setPower(1);
+        backMotor.setPower(1);
+
+
+
 
         telemetry.addData("Status", "Initialized");
         telemetry.update();
 
         waitForStart();
-
 
         if (opModeIsActive()) {
             // Select a position and execute its routine
@@ -71,7 +96,21 @@ public class FTCAutonomousMode extends LinearOpMode {
         telemetry.update();
 
         //moveForward(500, 0.5); // Move forward for 500 ms
-        moveForward(1000, 0.5); // Move forward for 1000 ms
+        moveBackward(728, 0.5); // Move forward for 1000 ms
+        setHeight(2800);
+        sleep(2000);
+        moveBackward(189,0.5);
+        sleep(2002);
+        moveBackward(185,0.5);
+        setHeight(1000);
+        sleep(1000);
+        moveForward(1000,0.5);
+        strafeRight(2000,0.5);
+//        while(true) {
+//            telemetry.addData("height", linearSlideMotor.getCurrentPosition());
+//            telemetry.update();
+//        }
+
 //        dropGameElement();
 //        moveBackward(500, 0.5); // Move backward for 500 ms
     }
@@ -130,22 +169,31 @@ public class FTCAutonomousMode extends LinearOpMode {
     }
 
     private void turnRight(int durationMs, double power) {
-        setMotorPower(power, power, -power, -power);
+        setMotorPower(power, -power, power, -power);
         sleep(durationMs);
         stopMotors();
     }
 
     private void dropGameElement() {
-        armServo.setPosition(ARM_OPEN_POSITION);
+        armServo.setDirection(DcMotorSimple.Direction.FORWARD);
+        armServo.setPower(1);
+        sleep(200);
+        armServo.setPower(0);
         sleep(1000);
-        armServo.setPosition(ARM_CLOSE_POSITION);
+
+
+    }
+
+    private void setHeight(int height)
+    {
+        linearSlideMotor.setTargetPosition(-height);
     }
 
     private void setMotorPower(double fl, double fr, double bl, double br) {
         frontLeftMotor.setPower(fl);
         frontRightMotor.setPower(fr);
         backLeftMotor.setPower(bl);
-        backRightMotor.setPower(-br);
+        backRightMotor.setPower(br);
     }
 
     private void stopMotors() {
