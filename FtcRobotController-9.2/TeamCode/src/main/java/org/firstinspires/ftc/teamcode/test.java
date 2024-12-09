@@ -26,7 +26,8 @@ public class test extends LinearOpMode {
         DcMotor intakeMotor = hardwareMap.get(DcMotor.class, "intake");
         CRServo backIntakeServo1 = hardwareMap.get(CRServo.class, "backIntakeServoL");
         CRServo backIntakeServo2 = hardwareMap.get(CRServo.class, "backIntakeServoR");
-        CRServo frontIntakeServo = hardwareMap.get(CRServo.class, "frontIntakeServo");
+        CRServo frontIntakeServo1 = hardwareMap.get(CRServo.class, "frontIntakeServoL");
+        CRServo frontIntakeServo2 = hardwareMap.get(CRServo.class, "frontIntakeServoR");
         frontLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         backLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
 
@@ -57,22 +58,13 @@ public class test extends LinearOpMode {
             double rfPower;
             double rbPower;
             double lbPower;
-
-            double poweslide;
-            double powerslidefoward;
-
-            // Choose to drive using either Tank Mode, or POV Mode
-            // Comment out the method that's not used.  The default below is POV.
-
-            // POV Mode uses left stick to go forward, and right stick to turn.
-            // - This uses basic math to combine motions and is easier to drive straight.
             double drive = gamepad1.right_stick_x * 0.68;
             double strafe = gamepad1.left_stick_x * 0.60;
             double turn = -gamepad1.left_stick_y * 0.63;
-            lfPower = Range.clip(turn + strafe + drive, -1.0, 1.0);
-            rfPower = Range.clip(turn - strafe + drive, -1.0, 1.0);
-            lbPower = Range.clip(turn - strafe - drive, -1.0, 1.0);
-            rbPower = Range.clip(turn + strafe - drive, -1.0, 1.0);
+            lfPower = -Range.clip(turn + strafe - drive, -1.0, 1.0);
+            rfPower = -Range.clip(turn - strafe - drive, -1.0, 1.0);
+            lbPower = -Range.clip(turn - strafe + drive, -1.0, 1.0);
+            rbPower = -Range.clip(turn + strafe + drive, -1.0, 1.0);
 
             frontLeftMotor.setPower(lfPower);
             backLeftMotor.setPower(rfPower);
@@ -95,26 +87,29 @@ public class test extends LinearOpMode {
 
             if (gamepad2.dpad_up) {
                 // Intake
-                frontIntakeServo.setPower(1.0);
+                frontIntakeServo1.setPower(1.0);
+                frontIntakeServo2.setPower(-1.0);
             } else if (gamepad2.dpad_down) {
                 // Outtake
-                frontIntakeServo.setPower(-1.0);
+                frontIntakeServo1.setPower(-1.0);
+                frontIntakeServo2.setPower(1.0);
             } else {
-                frontIntakeServo.setPower(0);
+                frontIntakeServo1.setPower(0);
+                frontIntakeServo2.setPower(0);
             }
 
             // Gamepad2 - Linear Slide and Slide Movement Controls
-            if (gamepad2.b) {
+            if (gamepad2.a) {
                 linearSlideMotor.setPower(UP_POWER);
-            } else if (gamepad2.x) {
+            } else if (gamepad2.y) {
                 linearSlideMotor.setPower(DOWN_POWER);
             } else {
                 linearSlideMotor.setPower(STOP_POWER);
             }
 
-            if (gamepad2.a) {
+            if (gamepad2.x) {
                 slideMovementMotor.setPower(UP_POWER);
-            } else if (gamepad2.y) {
+            } else if (gamepad2.b) {
                 slideMovementMotor.setPower(DOWN_POWER);
             } else {
                 slideMovementMotor.setPower(0);
@@ -140,9 +135,11 @@ public class test extends LinearOpMode {
                 intakeMotor.setPower(0);
                 backIntakeServo1.setPower(0);
                 backIntakeServo2.setPower(0);
-                frontIntakeServo.setPower(0);
+                frontIntakeServo1.setPower(0);
+                frontIntakeServo2.setPower(0);
                 return;
             }
         }
     }
 }
+
