@@ -195,12 +195,12 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name = "Aarush FSM")
-public class FSMTest extends LinearOpMode 
+public class FSMTest extends LinearOpMode
 {
     public static double kP_i = 0.02;
     public static double kP_o = 0.01;
 
-    public enum States 
+    public enum States
     {
         HOME,
         SCORE_SPEC,
@@ -220,15 +220,16 @@ public class FSMTest extends LinearOpMode
     public static double outtakeIn = 0;
     public static double outtakeSpec = 2600;
 
+    Servo leftm;
+    Servo rightm;
     CRServo bl;
     CRServo br;
-    CRServo fl;
-    CRServo fr;
-    Servo lm;
-    Servo rm;
+    CRServo frontl;
+    CRServo frontr;
+
 
     @Override
-    public void runOpMode() throws InterruptedException 
+    public void runOpMode() throws InterruptedException
     {
         DcMotor frontLeftMotor = hardwareMap.get(DcMotor.class, "lf_drive");
         DcMotor backLeftMotor = hardwareMap.get(DcMotor.class, "lb_drive");
@@ -240,11 +241,11 @@ public class FSMTest extends LinearOpMode
         bl = hardwareMap.get(CRServo.class, "br");
         br = hardwareMap.get(CRServo.class, "bl");
 
-        fr = hardwareMap.get(CRServo.class, "fr");
-        fl = hardwareMap.get(CRServo.class, "fl");
+        frontr = hardwareMap.get(CRServo.class, "fr");
+        frontl = hardwareMap.get(CRServo.class, "fl");
 
-        lm = hardwareMap.get(Servo.class, "lm");
-        rm = hardwareMap.get(Servo.class, "rm");
+        leftm = hardwareMap.get(Servo.class, "lm");
+        rightm = hardwareMap.get(Servo.class, "rm");
 
 
         backLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -271,9 +272,9 @@ public class FSMTest extends LinearOpMode
 
         if (isStopRequested()) return;
 
-        while (opModeIsActive()) 
+        while (opModeIsActive())
         {
-            switch (currentState) 
+            switch (currentState)
             {
                 case HOME:
                     intakeTarget = intakeIn;
@@ -312,7 +313,7 @@ public class FSMTest extends LinearOpMode
                     break;
 
             }
-            
+
             double turn = gamepad1.right_stick_x;
             double strafe = gamepad1.left_stick_x;
             double drive = gamepad1.left_stick_y;
@@ -336,109 +337,105 @@ public class FSMTest extends LinearOpMode
             telemetry.update();
         }
     }
-
-    public double intakePid(double target, double current) 
-    {
-        return (target - current) * kP_i;
-    }
-
-    public double outtakePid(double target, double current) 
-    {
-        return (target - current) * kP_o;
-    }
-
-        public void controlSample(Gamepad gamepad) 
-    {
-        if (gamepad2.y) 
-        {
-            intakeSample();
-        } 
-        else if (gamepad2.a) 
-        {
-            outtakeSample();
-        } 
-        else 
-        {
-            idleSample();
-        }
-    }
-    
-    public void controlIntake(Gamepad gamepad) 
-    {
-        if (gamepad2.dpad_up) {
-            upIntake();
-        } 
-        else if (gamepad2.dpad_down) 
-        {
-            downIntake();
-        }
-
-    }
-
-    // method cult
-    public void intakeSpec() 
+    public void intakeSpec()
     {
         bl.setPower(-1.0);
         br.setPower(1.0);
     }
 
-    public void outtakeSpec() 
+    public void outtakeSpec()
     {
         bl.setPower(1.0);
         br.setPower(-1.0);
     }
 
-    public void idleSpec() 
+    public void idleSpec()
     {
         bl.setPower(0);
         br.setPower(0);
     }
 
 
-    public void intakeSample() 
+    public void intakeSample()
     {
-        fl.setPower(-1.0);
-        fr.setPower(1.0);
+        frontl.setPower(-1.0);
+        frontr.setPower(1.0);
     }
 
-    public void outtakeSample() 
+    public void outtakeSample()
     {
-        fl.setPower(1.0);
-        fr.setPower(-1.0);
+        frontl.setPower(1.0);
+        frontr.setPower(-1.0);
     }
 
-    public void idleSample() 
+    public void idleSample()
     {
-        fl.setPower(0);
-        fr.setPower(0);
-    }
-
-
-    public void upIntake() 
-    {
-        lm.setPosition(0); //Tune first then tweak the code.
-        rm.setPosition(0); //Tune first then tweak the code.
-    }
-
-    public void downIntake() 
-    {
-        lm.setPosition(0.5); //Tune first then tweak the code.
-        rm.setPosition(0.5); //Tune first then tweak the code.
+        frontl.setPower(0);
+        frontr.setPower(0);
     }
 
 
-
-    public void controlSpec(Gamepad gamepad) 
+    public void upIntake()
     {
-        if (gamepad2.b) 
+        leftm.setPosition(0); //Tune first then tweak the code.
+        rightm.setPosition(0); //Tune first then tweak the code.
+    }
+
+    public void downIntake()
+    {
+        leftm.setPosition(0.5); //Tune first then tweak the code.
+        rightm.setPosition(0.5); //Tune first then tweak the code.
+    }
+    public double intakePid(double target, double current)
+    {
+        return (target - current) * kP_i;
+    }
+
+    public double outtakePid(double target, double current)
+    {
+        return (target - current) * kP_o;
+    }
+
+    public void controlSample(Gamepad gamepad)
+    {
+        if (gamepad2.y)
+        {
+            intakeSample();
+        }
+        else if (gamepad2.a)
+        {
+            outtakeSample();
+        }
+        else
+        {
+            idleSample();
+        }
+    }
+
+    public void controlIntake(Gamepad gamepad)
+    {
+        if (gamepad2.dpad_up) {
+            upIntake();
+        }
+        else if (gamepad2.dpad_down)
+        {
+            downIntake();
+        }
+
+    }
+
+
+    public void controlSpec(Gamepad gamepad)
+    {
+        if (gamepad2.b)
         {
             intakeSpec();
-        } 
-        else if (gamepad2.x) 
+        }
+        else if (gamepad2.x)
         {
             outtakeSpec();
-        } 
-        else 
+        }
+        else
         {
             idleSpec();
         }
