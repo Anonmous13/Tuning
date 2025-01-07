@@ -347,6 +347,33 @@ public class FSMTest extends LinearOpMode
         return (target - current) * kP_o;
     }
 
+        public void controlSample(Gamepad gamepad) 
+    {
+        if (gamepad2.y) 
+        {
+            intakeSample();
+        } 
+        else if (gamepad2.a) 
+        {
+            outtakeSample();
+        } 
+        else 
+        {
+            idleSample();
+        }
+    }
+    
+    public void controlIntake(Gamepad gamepad) 
+    {
+        if (gamepad2.dpad_up) {
+            upIntake();
+        } 
+        else if (gamepad2.dpad_down) 
+        {
+            downIntake();
+        }
+
+    }
 
     // method cult
     public void intakeSpec() 
@@ -417,31 +444,4 @@ public class FSMTest extends LinearOpMode
         }
     }
 
-    public void controlSample(Gamepad gamepad) 
-    {
-        if (gamepad2.y) 
-        {
-            intakeSample();
-        } 
-        else if (gamepad2.a) 
-        {
-            outtakeSample();
-        } 
-        else 
-        {
-            idleSample();
-        }
-    }
-    
-    public void controlIntake(Gamepad gamepad) 
-    {
-        if (gamepad2.dpad_up) {
-            upIntake();
-        } 
-        else if (gamepad2.dpad_down) 
-        {
-            downIntake();
-        }
-
-    }
 }
