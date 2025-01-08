@@ -1,7 +1,7 @@
 /**
  * build.common.gradle
  *
- * Try to avoid editing this file, as it may be updated from time to time as the FTC SDK
+ * Try to avoid editing this file,, as it may be updated from time to time as the FTC SDK
  * evolves. Rather, if it is necessary to customize the build process, do those edits in
  * the build.gradle file in TeamCode.
  *
