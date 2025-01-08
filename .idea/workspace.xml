@@ -1,142 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54c9b4d8-4ebb-4379-9c9f-388577d18d59" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/BelugaBots.iml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/fiveSpecBlue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/fiveSpecRed.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/pedroPathing/constants/FConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/pedroPathing/constants/LConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/pedroPathing/examples/Circle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/pedroPathing/examples/ExampleBucketAuto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/pedroPathing/examples/ExampleFieldCentricTeleop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/pedroPathing/examples/ExampleRobotCentricTeleop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/pedroPathing/examples/Triangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/pedroPathing/tuners_tests/automatic/ForwardVelocityTuner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/pedroPathing/tuners_tests/automatic/ForwardZeroPowerAccelerationTuner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/pedroPathing/tuners_tests/automatic/LateralZeroPowerAccelerationTuner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/pedroPathing/tuners_tests/automatic/StrafeVelocityTuner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/pedroPathing/tuners_tests/localization/ForwardTuner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/pedroPathing/tuners_tests/localization/LateralTuner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/pedroPathing/tuners_tests/localization/LocalizationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/pedroPathing/tuners_tests/localization/MotorDirections.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/pedroPathing/tuners_tests/localization/SensorGoBildaPinpointExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/pedroPathing/tuners_tests/localization/TurnTuner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/pedroPathing/tuners_tests/pid/CurvedBackAndForth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TeamCode/src/main/java/pedroPathing/tuners_tests/pid/StraightBackAndForth.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/other.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/.github/CONTRIBUTING.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/.github/PULL_REQUEST_TEMPLATE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/BBColorSensorHuskyLens.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/BasicOmniOpMode_Linear.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/BasicOpMode_Iterative.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/BasicOpMode_Linear.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptAprilTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptAprilTagEasy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptAprilTagMultiPortal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptAprilTagOptimizeExposure.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptAprilTagSwitchableCameras.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptExploringIMUOrientation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptExternalHardwareClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptGamepadRumble.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptGamepadTouchpad.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptMotorBulkRead.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptNullOp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptRampMotorSpeed.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptRevSPARKMini.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptScanServo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptSoundsASJava.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptSoundsOnBotJava.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptSoundsSKYSTONE.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptTelemetry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/RobotAutoDriveByEncoder_Linear.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/RobotAutoDriveByGyro_Linear.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/RobotAutoDriveByTime_Linear.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/RobotAutoDriveToAprilTagOmni.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/RobotAutoDriveToAprilTagTank.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/RobotAutoDriveToLine_Linear.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/RobotHardware.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/RobotTeleopPOV_Linear.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/RobotTeleopTank_Iterative.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SampleRevBlinkinLedDriver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorBNO055IMU.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorBNO055IMUCalibration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorColor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorDigitalTouch.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorHuskyLens.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorIMUNonOrthogonal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorIMUOrthogonal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorKLNavxMicro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorMRColor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorMRGyro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorMROpticalDistance.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorMRRangeSensor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorOctoQuad.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorOctoQuadAdv.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorREV2mDistance.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorSparkFunOTOS.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorTouch.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/UtilityCameraFrameCapture.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/UtilityOctoQuadConfigMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/sample_conventions.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/internal/FtcOpModeRegister.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/internal/FtcRobotControllerActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/internal/PermissionValidatorWrapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/res/drawable-xhdpi/icon_menu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/res/drawable-xhdpi/icon_robotcontroller.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/res/layout/activity_ftc_controller.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/res/menu/ftc_robot_controller.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/res/raw/gold.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/res/raw/silver.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/res/values/dimens.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/res/values/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/res/xml/app_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/FtcRobotController/src/main/res/xml/device_filter.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/lib/OpModeAnnotationProcessor.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/ActualBlueAuton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/ActualRedAuton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/AutonBlueBelugaBots.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/AutonRedBelugaBots.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/BackUp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/BasicAutonITD.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/BasicLinearSlideITD.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/IAFCode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/KarthiTeleOP.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/NewSampleTeleOP.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/NovAutoWorks.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/NovAuton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/PossibleTeleOPWithMotors.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SecondBlueAuton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SecondRedAuton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SimpleEncoders/AutoRobotMove.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SimpleEncoders/OpModeEncoders.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SimpleEncoders/PerciseMovementOpMode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SimpleLinearSlide.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SkibidiAutonLALALALA.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SkibidiAutonUpdated.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SkibidiEncoderOpMode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleOPTwo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleOpMode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/res/raw/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/TeamCode/src/main/res/xml/teamwebcamcalibrations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/build.common.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/build.dependencies.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/doc/legal/AudioBlocksSounds.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/doc/legal/Exhibit A - LEGO Open Source License Agreement.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/doc/legal/LEGO Open Source License.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/doc/media/PullRequest.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/libs/README.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/libs/ftc.debug.keystore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController-9.2/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/ActualBlueAuton.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/ActualBlueAuton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/ActualRedAuton.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/ActualRedAuton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/AutonBlueBelugaBots.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/AutonBlueBelugaBots.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/AutonRedBelugaBots.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/AutonRedBelugaBots.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/BackUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/BackUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/BasicAutonITD.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/BasicAutonITD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/BasicLinearSlideITD.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/FSMTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/FSMTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/IAFCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/IAFCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/KarthiTeleOP.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/KarthiTeleOP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/NewSampleTeleOP.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/NewSampleTeleOP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/NovAutoWorks.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/NovAutoWorks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/NovAuton.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/NovAuton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/PossibleTeleOPWithMotors.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/PossibleTeleOPWithMotors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SecondBlueAuton.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SecondBlueAuton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SecondRedAuton.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SecondRedAuton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SimpleEncoders/AutoRobotMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SimpleEncoders/AutoRobotMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SimpleEncoders/OpModeEncoders.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SimpleEncoders/OpModeEncoders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SimpleEncoders/PerciseMovementOpMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SimpleEncoders/PerciseMovementOpMode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SimpleLinearSlide.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SimpleLinearSlide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SkibidiAutonUpdated.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SkibidiAutonUpdated.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SkibidiEncoderOpMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/SkibidiEncoderOpMode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleOPTwo.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleOPTwo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleOpMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleOpMode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TheRealEncodersAuton.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TheRealEncodersAuton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/linkage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/linkage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.dependencies.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.dependencies.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,6 +92,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -183,7 +115,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -193,27 +125,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.C:/Users/arshy/Documents/GitHub/BelugaBotsGithub/FtcRobotController-9.2/settings.gradle.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "android.gradle.sync.needed": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/arshy/Downloads",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.31724137",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Android App.TeamCode.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.C:/Users/arshy/Documents/GitHub/BelugaBotsGithub/FtcRobotController-9.2/settings.gradle.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/arshy/Documents/GitHub/BelugaBotsGithub/TeamCode/src/main/java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.31724137&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\arshy\Documents\GitHub\BelugaBotsGithub\TeamCode\src\main\java" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="TeamCode" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="BelugaBotsGithub.TeamCode.main" />
@@ -294,6 +231,17 @@
       <updated>1723060078939</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
