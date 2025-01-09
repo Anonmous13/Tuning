@@ -4,6 +4,8 @@ import com.pedropathing.follower.FollowerConstants;
 import com.pedropathing.localization.GoBildaPinpointDriver;
 import com.pedropathing.localization.Localizers;
 import com.pedropathing.localization.constants.PinpointConstants;
+import com.pedropathing.util.CustomFilteredPIDFCoefficients;
+import com.pedropathing.util.CustomPIDFCoefficients;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
@@ -22,8 +24,27 @@ public class FConstants {
         FollowerConstants.rightFrontMotorDirection = DcMotorSimple.Direction.FORWARD;
         FollowerConstants.rightRearMotorDirection = DcMotorSimple.Direction.FORWARD;
 
-        PinpointConstants.forwardY = 1;
-        PinpointConstants.strafeX = -2.5;
+        FollowerConstants.xMovement = output;
+        FollowerConstants.yMovement = OUTPUT;
+        FollowerConstants.forwardZeroPowerAcceleration = OUTPUT;
+        FollowerConstants.lateralZeroPowerAcceleration = OUTPUT;
+        FollowerConstants.mass = MASS;
+
+        FollowerConstants.translationalPIDFCoefficients = new CustomPIDFCoefficients(P,I,D,F); //replace pidf with nujmbers
+        FollowerConstants.headingPIDFCoefficients = new CustomPIDFCoefficients(P,I,D,F);
+        FollowerConstants.zeroPowerAccelerationMultiplier = VALUE;
+
+        //Higher values: Faster braking but more oscillations.
+        //Lower values: Slower braking with fewer oscillations.
+
+        FollowerConstants.drivePIDFCoefficients = new CustomFilteredPIDFCoefficients(P,I,D,T,F);
+
+        FollowerConstants.centripetalScaling = VALUE;
+        // if bot curves inward, increase
+        // if bot curves outward, decreate
+
+        PinpointConstants.forwardY = 1; // tune
+        PinpointConstants.strafeX = -2.5; // tune
         PinpointConstants.distanceUnit = DistanceUnit.INCH;
         PinpointConstants.hardwareMapName = "pinpoint";
         PinpointConstants.useYawScalar = false;

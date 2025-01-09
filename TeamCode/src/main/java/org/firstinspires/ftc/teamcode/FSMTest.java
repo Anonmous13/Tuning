@@ -37,8 +37,8 @@ public class FSMTest extends LinearOpMode {
     CRServo fl; // front left gecko
     CRServo fr; // front right gecko
     CRServo wrist; // wrist pivot point
-    Servo lm; // left misumi slide  (should this be Continous?)
-    Servo rm; // right misumi slide (this too ^^)
+    Servo lm; // left misumi slide
+    Servo rm; // right misumi slide
 
     @Override
     public void runOpMode() throws InterruptedException {
