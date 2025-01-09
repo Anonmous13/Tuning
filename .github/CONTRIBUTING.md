@@ -4,7 +4,7 @@ The following is a set of guidelines for contributing the FIRST FTC SDK.  The FT
 
 ## How can I contribute?
 
-### Pull requests
+### Pull requests 
 
 __STOP!__  If you are new to git, do not understand the mechanics of forks, branches, and pulls, if what you just read is confusing, __do not__ push this button.  Most likely it won't do what you think it will.
 
