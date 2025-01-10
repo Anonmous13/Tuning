@@ -1,59 +1,52 @@
 package pedroPathing.constants;
 
-import com.pedropathing.follower.FollowerConstants;
-import com.pedropathing.localization.GoBildaPinpointDriver;
 import com.pedropathing.localization.Localizers;
-import com.pedropathing.localization.constants.PinpointConstants;
+import com.pedropathing.follower.FollowerConstants;
 import com.pedropathing.util.CustomFilteredPIDFCoefficients;
 import com.pedropathing.util.CustomPIDFCoefficients;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
-
 public class FConstants {
     static {
-        FollowerConstants.localizers = Localizers.PINPOINT;
+        FollowerConstants.localizers = Localizers.THREE_WHEEL;
 
-        FollowerConstants.leftFrontMotorName = "lf_drive";
-        FollowerConstants.leftRearMotorName = "lb_drive";
-        FollowerConstants.rightFrontMotorName = "rf_drive";
-        FollowerConstants.rightRearMotorName = "rb_drive";
+        FollowerConstants.leftFrontMotorName = "leftFront";
+        FollowerConstants.leftRearMotorName = "leftRear";
+        FollowerConstants.rightFrontMotorName = "rightFront";
+        FollowerConstants.rightRearMotorName = "rightRear";
 
-        FollowerConstants.leftFrontMotorDirection = DcMotorSimple.Direction.FORWARD;
+        FollowerConstants.leftFrontMotorDirection = DcMotorSimple.Direction.REVERSE;
         FollowerConstants.leftRearMotorDirection = DcMotorSimple.Direction.REVERSE;
         FollowerConstants.rightFrontMotorDirection = DcMotorSimple.Direction.FORWARD;
         FollowerConstants.rightRearMotorDirection = DcMotorSimple.Direction.FORWARD;
 
-        FollowerConstants.xMovement = output;
-        FollowerConstants.yMovement = OUTPUT;
-        FollowerConstants.forwardZeroPowerAcceleration = OUTPUT;
-        FollowerConstants.lateralZeroPowerAcceleration = OUTPUT;
-        FollowerConstants.mass = MASS;
+        FollowerConstants.mass = 22.8;
 
-        FollowerConstants.translationalPIDFCoefficients = new CustomPIDFCoefficients(P,I,D,F); //replace pidf with nujmbers
-        FollowerConstants.headingPIDFCoefficients = new CustomPIDFCoefficients(P,I,D,F);
-        FollowerConstants.zeroPowerAccelerationMultiplier = VALUE;
+        FollowerConstants.xMovement = 57.8741;
+        FollowerConstants.yMovement = 52.295;
 
-        //Higher values: Faster braking but more oscillations.
-        //Lower values: Slower braking with fewer oscillations.
+        FollowerConstants.forwardZeroPowerAcceleration = -41.278;
+        FollowerConstants.lateralZeroPowerAcceleration = -59.7819;
 
-        FollowerConstants.drivePIDFCoefficients = new CustomFilteredPIDFCoefficients(P,I,D,T,F);
+        FollowerConstants.translationalPIDFCoefficients.setCoefficients(0.1,0,0.01,0);
+        FollowerConstants.useSecondaryTranslationalPID = false;
+        FollowerConstants.secondaryTranslationalPIDFCoefficients.setCoefficients(0.1,0,0.01,0); // Not being used, @see useSecondaryTranslationalPID
 
-        FollowerConstants.centripetalScaling = VALUE;
-        // if bot curves inward, increase
-        // if bot curves outward, decreate
+        FollowerConstants.headingPIDFCoefficients.setCoefficients(2,0,0.1,0);
+        FollowerConstants.useSecondaryHeadingPID = false;
+        FollowerConstants.secondaryHeadingPIDFCoefficients.setCoefficients(2,0,0.1,0); // Not being used, @see useSecondaryHeadingPID
 
-        PinpointConstants.forwardY = 1; // tune
-        PinpointConstants.strafeX = -2.5; // tune
-        PinpointConstants.distanceUnit = DistanceUnit.INCH;
-        PinpointConstants.hardwareMapName = "pinpoint";
-        PinpointConstants.useYawScalar = false;
-        PinpointConstants.yawScalar = 1.0;
-        PinpointConstants.useCustomEncoderResolution = false;
-        PinpointConstants.encoderResolution = GoBildaPinpointDriver.GoBildaOdometryPods.goBILDA_SWINGARM_POD;
-        PinpointConstants.customEncoderResolution = 13.26291192;
-        PinpointConstants.forwardEncoderDirection = GoBildaPinpointDriver.EncoderDirection.REVERSED;
-        PinpointConstants.strafeEncoderDirection = GoBildaPinpointDriver.EncoderDirection.FORWARD;
+        FollowerConstants.drivePIDFCoefficients.setCoefficients(0.1,0,0,0.6,0);
+        FollowerConstants.useSecondaryDrivePID = false;
+        FollowerConstants.secondaryDrivePIDFCoefficients.setCoefficients(0.1,0,0,0.6,0); // Not being used, @see useSecondaryDrivePID
 
+        FollowerConstants.zeroPowerAccelerationMultiplier = 4;
+        FollowerConstants.centripetalScaling = 0.0005;
+
+        FollowerConstants.pathEndTimeoutConstraint = 500;
+        FollowerConstants.pathEndTValueConstraint = 0.995;
+        FollowerConstants.pathEndVelocityConstraint = 0.1;
+        FollowerConstants.pathEndTranslationalConstraint = 0.1;
+        FollowerConstants.pathEndHeadingConstraint = 0.007;
     }
 }
